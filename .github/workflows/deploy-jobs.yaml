@@ -1,0 +1,41 @@
+name: Marsvin matrix library deploy jobs
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy-doxygen:
+    name: Build and Deploy Doxygen documentation
+    #if: github.event.pull_request.merged == true
+    runs-on: ubuntu-20.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Doxygen
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen doxygen-doc graphviz
+      - name: Build documentation
+        run: |
+          cd documentation
+          doxygen
+      - name: Build Jekyll site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: documentation/output-dir/html
+          destination: "./_site"
+      - name: Publish HTML files
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: documentation/output-dir/html
+      - name: Deploy github page
+        uses: actions/deploy-pages@v2
+

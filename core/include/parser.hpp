@@ -1,8 +1,8 @@
 #ifndef PARSER_HPP_
 #define PARSER_HPP_
 
-#include <vector>
 #include <string>
+#include <vector>
 
 namespace rubberduck {
 
@@ -14,10 +14,8 @@ class Parser {
 
   private:
     std::vector<std::string> arguments_;
-
 };
 
 }  // namespace rubberduck
 
 #endif  // PARSER_HPP_
-

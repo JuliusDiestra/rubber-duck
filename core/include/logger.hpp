@@ -1,13 +1,12 @@
 #ifndef LOGGER_HPP_
 #define LOGGER_HPP_
 
-
 #include <iostream>
 
 const std::string kVersion = "1.0.0";
 
 const std::string kHelpMenu =
-R"(
+    R"(
 OVERVIEW: A tool for rubber duck debugging for lonely and desperate developers.
 
 - The rubber-duck is picky and only likes polite developers that greet.
@@ -36,30 +35,37 @@ const std::string kBoldGreenConsole = "\033[1m\033[32m";
 const std::string kBoldYellowConsole = "\033[1m\033[33m";
 const std::string kResetColorConsole = "\033[0m";
 
-
 namespace rubberduck {
 
 class Logger {
   public:
-    Logger() {};
+    Logger(){};
     void NoGreeting() {
-        std::cout << "\nThis sophisticated Ruber Duck likes polite people. You need to greet first. Quack !" << "\n \n";
+        std::cout << "\nThis sophisticated Ruber Duck likes polite people. You "
+                     "need to greet first. Quack !"
+                  << "\n \n";
     }
     void DontUnderstand() {
-        std::cout << "\nThis sophisticated Ruber Duck does not understand you. Quack !" << "\n \n";
+        std::cout << "\nThis sophisticated Ruber Duck does not understand you. "
+                     "Quack !"
+                  << "\n \n";
     }
     void TooMuch() {
-        std::cout << "\nThis sophisticated Ruber Duck only needs a simple hello. Quack !" << "\n \n";
+        std::cout << "\nThis sophisticated Ruber Duck only needs a simple "
+                     "hello. Quack !"
+                  << "\n \n";
     }
     void DeveloperConsole() {
-        std::cout << kBoldGreenConsole << "<desperate-developer> " << kResetColorConsole;
+        std::cout << kBoldGreenConsole << "<desperate-developer> "
+                  << kResetColorConsole;
     }
     void RubberDuckConsole() {
-        std::cout << kBoldYellowConsole << "<ruber-duck> " << kResetColorConsole;
+        std::cout << kBoldYellowConsole << "<ruber-duck> "
+                  << kResetColorConsole;
     }
     void SaySomething() {
         int total_comments = 11;
-        int selection = ( std::rand() % total_comments ) + 1;
+        int selection = (std::rand() % total_comments) + 1;
         switch (selection) {
             case 1:
                 std::cout << "Quack!\n";
@@ -101,7 +107,7 @@ class Logger {
     }
     void SayGoodBye() {
         int total_comments = 4;
-        int selection = ( std::rand() % total_comments ) + 1;
+        int selection = (std::rand() % total_comments) + 1;
         switch (selection) {
             case 1:
                 std::cout << "Gotta go, Buffalo!\n";
@@ -131,6 +137,5 @@ class Logger {
 };
 
 }  // namespace rubberduck
-
 
 #endif  // RUNNER_HPP_
