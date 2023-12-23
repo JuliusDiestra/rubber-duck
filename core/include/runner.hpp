@@ -1,8 +1,8 @@
 #ifndef RUNNER_HPP_
 #define RUNNER_HPP_
 
-#include "parser.hpp"
 #include "logger.hpp"
+#include "parser.hpp"
 
 namespace rubberduck {
 
@@ -24,4 +24,3 @@ class Runner {
 }  // namespace rubberduck
 
 #endif  // RUNNER_HPP_
-
